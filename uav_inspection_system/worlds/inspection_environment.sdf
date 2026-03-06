@@ -1,244 +1,329 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
-
-<world name="inspection_world">
-
-<!-- 太阳光 -->
-<light type="directional" name="sun">
-  <pose>0 0 100 0 0 0</pose>
-  <diffuse>1 1 1 1</diffuse>
-  <specular>0.5 0.5 0.5 1</specular>
-  <direction>-0.5 0.1 -1</direction>
-</light>
-
-
-<!-- 地面 -->
-<model name="ground">
-  <static>true</static>
-  <link name="link">
-    <collision name="collision">
-      <geometry>
-        <plane>
-          <normal>0 0 1</normal>
-          <size>400 400</size>
-        </plane>
-      </geometry>
-    </collision>
-
-    <visual name="visual">
-      <geometry>
-        <plane>
-          <normal>0 0 1</normal>
-          <size>400 400</size>
-        </plane>
-      </geometry>
-      <material>
-        <ambient>0.4 0.6 0.4 1</ambient>
-        <diffuse>0.4 0.6 0.4 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model>
-
-
-
-<!-- 山体 -->
-<model name="mountain">
-  <static>true</static>
-  <pose>0 0 15 0 0 0</pose>
-
-  <link name="link">
-
-    <collision name="collision">
-      <geometry>
-        <box>
-          <size>80 80 30</size>
-        </box>
-      </geometry>
-    </collision>
-
-    <visual name="visual">
-      <geometry>
-        <box>
-          <size>80 80 30</size>
-        </box>
-      </geometry>
-
-      <material>
-        <ambient>0.5 0.4 0.3 1</ambient>
-        <diffuse>0.6 0.45 0.3 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 输电塔1 -->
-<model name="tower1">
-  <static>true</static>
-  <pose>-40 0 20 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>1.2</radius>
-          <length>40</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0.3 0.3 0.3 1</ambient>
-        <diffuse>0.4 0.4 0.4 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 输电塔2 (更高一点) -->
-<model name="tower2">
-  <static>true</static>
-  <pose>40 0 24 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>1.2</radius>
-          <length>48</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0.3 0.3 0.3 1</ambient>
-        <diffuse>0.4 0.4 0.4 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 电线 -->
-<model name="powerline">
-  <static>true</static>
-
-  <link name="link">
-
-    <visual name="wire">
-
-      <pose>0 0 42 0 1.57 0</pose>
-
-      <geometry>
-        <cylinder>
-          <radius>0.25</radius>
-          <length>80</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0 0 1</ambient>
-        <diffuse>0.1 0.1 0.1 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 树1 -->
-<model name="tree1">
-  <static>true</static>
-  <pose>-10 25 6 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>2</radius>
-          <length>12</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0.7 0 1</ambient>
-        <diffuse>0 0.8 0 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 树2 -->
-<model name="tree2">
-  <static>true</static>
-  <pose>20 30 7 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>2</radius>
-          <length>14</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0.7 0 1</ambient>
-        <diffuse>0 0.8 0 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 树3 -->
-<model name="tree3">
-  <static>true</static>
-  <pose>-25 -20 6 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>2</radius>
-          <length>12</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0.7 0 1</ambient>
-        <diffuse>0 0.8 0 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-</world>
+  <world name="inspection_world">
+
+    <!-- 光照 -->
+    <light type="directional" name="sun">
+      <pose>0 0 120 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.4 0.4 0.4 1</specular>
+      <direction>-0.4 0.2 -1</direction>
+    </light>
+
+    <!-- 地面 -->
+    <model name="ground">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.35 0.55 0.35 1</ambient>
+            <diffuse>0.35 0.55 0.35 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 主山体：用于抬高左侧输电塔 -->
+    <model name="mountain_main">
+      <static>true</static>
+      <pose>-45 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="base_collision">
+          <pose>0 0 6 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>28</radius>
+              <length>12</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <collision name="peak_collision">
+          <pose>0 0 16 0 0 0</pose>
+          <geometry>
+            <cone>
+              <radius>20</radius>
+              <length>20</length>
+            </cone>
+          </geometry>
+        </collision>
+
+        <visual name="base_visual">
+          <pose>0 0 6 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>28</radius>
+              <length>12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.44 0.35 0.27 1</ambient>
+            <diffuse>0.52 0.4 0.3 1</diffuse>
+          </material>
+        </visual>
+        <visual name="peak_visual">
+          <pose>0 0 16 0 0 0</pose>
+          <geometry>
+            <cone>
+              <radius>20</radius>
+              <length>20</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.42 0.33 0.25 1</ambient>
+            <diffuse>0.5 0.38 0.28 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 副山体：增加峡谷感 -->
+    <model name="mountain_side">
+      <static>true</static>
+      <pose>-8 40 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <pose>0 0 9 0 0 0</pose>
+          <geometry>
+            <cone>
+              <radius>18</radius>
+              <length>18</length>
+            </cone>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 9 0 0 0</pose>
+          <geometry>
+            <cone>
+              <radius>18</radius>
+              <length>18</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.43 0.35 0.28 1</ambient>
+            <diffuse>0.5 0.4 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 输电塔1（山顶） -->
+    <model name="tower_mountain">
+      <static>true</static>
+      <pose>-45 0 39 0 0 0</pose>
+      <link name="link">
+        <collision name="mast_collision">
+          <geometry>
+            <cylinder>
+              <radius>1.1</radius>
+              <length>26</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <collision name="crossarm_collision">
+          <pose>0 0 10 0 1.5708 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.35</radius>
+              <length>8</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <visual name="mast_visual">
+          <geometry>
+            <cylinder>
+              <radius>1.1</radius>
+              <length>26</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.27 0.27 0.27 1</ambient>
+            <diffuse>0.38 0.38 0.38 1</diffuse>
+          </material>
+        </visual>
+        <visual name="crossarm_visual">
+          <pose>0 0 10 0 1.5708 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.35</radius>
+              <length>8</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.27 0.27 0.27 1</ambient>
+            <diffuse>0.38 0.38 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 输电塔2（平地） -->
+    <model name="tower_plain">
+      <static>true</static>
+      <pose>55 0 16 0 0 0</pose>
+      <link name="link">
+        <collision name="mast_collision">
+          <geometry>
+            <cylinder>
+              <radius>1.2</radius>
+              <length>32</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <collision name="crossarm_collision">
+          <pose>0 0 11 0 1.5708 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.35</radius>
+              <length>8.5</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <visual name="mast_visual">
+          <geometry>
+            <cylinder>
+              <radius>1.2</radius>
+              <length>32</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.27 0.27 0.27 1</ambient>
+            <diffuse>0.38 0.38 0.38 1</diffuse>
+          </material>
+        </visual>
+        <visual name="crossarm_visual">
+          <pose>0 0 11 0 1.5708 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.35</radius>
+              <length>8.5</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.27 0.27 0.27 1</ambient>
+            <diffuse>0.38 0.38 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 电线：用多段细圆柱逼近弧垂曲线（左高右低） -->
+    <model name="powerline_catenary">
+      <static>true</static>
+      <link name="link">
+        <visual name="wire_seg_1">
+          <pose>-38.75 0 50.5 0 1.513 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <visual name="wire_seg_2">
+          <pose>-26.25 0 46.5 0 1.442 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <visual name="wire_seg_3">
+          <pose>-13.75 0 42.5 0 1.412 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <visual name="wire_seg_4">
+          <pose>-1.25 0 39.5 0 1.373 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <visual name="wire_seg_5">
+          <pose>11.25 0 37.5 0 1.333 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <visual name="wire_seg_6">
+          <pose>23.75 0 36.2 0 1.298 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <visual name="wire_seg_7">
+          <pose>36.25 0 35.3 0 1.278 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <visual name="wire_seg_8">
+          <pose>48.75 0 34.8 0 1.263 0</pose>
+          <geometry><cylinder><radius>0.12</radius><length>12.8</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 树木障碍（树干 + 树冠） -->
+    <model name="tree_1">
+      <static>true</static>
+      <pose>-24 18 0 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 3 0 0 0</pose><geometry><cylinder><radius>0.8</radius><length>6</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 8 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 3 0 0 0</pose><geometry><cylinder><radius>0.8</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 8 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_2">
+      <static>true</static>
+      <pose>-8 -22 0 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 3.5 0 0 0</pose><geometry><cylinder><radius>0.9</radius><length>7</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 9 0 0 0</pose><geometry><sphere><radius>3</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 3.5 0 0 0</pose><geometry><cylinder><radius>0.9</radius><length>7</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 9 0 0 0</pose><geometry><sphere><radius>3</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_3">
+      <static>true</static>
+      <pose>14 26 0 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 3 0 0 0</pose><geometry><cylinder><radius>0.75</radius><length>6</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 7.8 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 3 0 0 0</pose><geometry><cylinder><radius>0.75</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 7.8 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_4">
+      <static>true</static>
+      <pose>28 -18 0 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 4 0 0 0</pose><geometry><cylinder><radius>1</radius><length>8</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 10 0 0 0</pose><geometry><sphere><radius>3.2</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 4 0 0 0</pose><geometry><cylinder><radius>1</radius><length>8</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 10 0 0 0</pose><geometry><sphere><radius>3.2</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_5">
+      <static>true</static>
+      <pose>5 8 0 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 2.5 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>5</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 6.8 0 0 0</pose><geometry><sphere><radius>2.3</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 2.5 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>5</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 6.8 0 0 0</pose><geometry><sphere><radius>2.3</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+
+  </world>
 </sdf>
