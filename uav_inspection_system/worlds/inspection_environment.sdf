@@ -568,7 +568,7 @@
     <!-- 树木障碍 -->
     <model name="tree_1">
       <static>true</static>
-      <pose>-24 18 0 0 0</pose>
+      <pose>-24 18 0 0 0 0</pose>
       <link name="link">
         <collision name="trunk_collision"><pose>0 0 3.0 0 0 0</pose><geometry><cylinder><radius>0.8</radius><length>6</length></cylinder></geometry></collision>
         <collision name="crown_collision"><pose>0 0 8.0 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry></collision>
@@ -579,7 +579,7 @@
 
     <model name="tree_2">
       <static>true</static>
-      <pose>-8 -22 0 0 0</pose>
+      <pose>-8 -22 0 0 0 0</pose>
       <link name="link">
         <collision name="trunk_collision"><pose>0 0 3.5 0 0 0</pose><geometry><cylinder><radius>0.9</radius><length>7</length></cylinder></geometry></collision>
         <collision name="crown_collision"><pose>0 0 9.0 0 0 0</pose><geometry><sphere><radius>3.0</radius></sphere></geometry></collision>
@@ -590,7 +590,7 @@
 
     <model name="tree_3">
       <static>true</static>
-      <pose>14 26 0 0 0</pose>
+      <pose>14 26 0 0 0 0</pose>
       <link name="link">
         <collision name="trunk_collision"><pose>0 0 3.0 0 0 0</pose><geometry><cylinder><radius>0.75</radius><length>6</length></cylinder></geometry></collision>
         <collision name="crown_collision"><pose>0 0 7.8 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry></collision>
@@ -601,7 +601,7 @@
 
     <model name="tree_4">
       <static>true</static>
-      <pose>28 -18 0 0 0</pose>
+      <pose>28 -18 0 0 0 0</pose>
       <link name="link">
         <collision name="trunk_collision"><pose>0 0 4.0 0 0 0</pose><geometry><cylinder><radius>1.0</radius><length>8</length></cylinder></geometry></collision>
         <collision name="crown_collision"><pose>0 0 10.0 0 0 0</pose><geometry><sphere><radius>3.2</radius></sphere></geometry></collision>
@@ -612,7 +612,7 @@
 
     <model name="tree_5">
       <static>true</static>
-      <pose>5 8 0 0 0</pose>
+      <pose>5 8 0 0 0 0</pose>
       <link name="link">
         <collision name="trunk_collision"><pose>0 0 2.5 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>5</length></cylinder></geometry></collision>
         <collision name="crown_collision"><pose>0 0 6.8 0 0 0</pose><geometry><sphere><radius>2.3</radius></sphere></geometry></collision>
@@ -623,7 +623,7 @@
 
     <model name="tree_6">
       <static>true</static>
-      <pose>32 14 0 0 0</pose>
+      <pose>32 14 0 0 0 0</pose>
       <link name="link">
         <collision name="trunk_collision"><pose>0 0 3.2 0 0 0</pose><geometry><cylinder><radius>0.85</radius><length>6.5</length></cylinder></geometry></collision>
         <collision name="crown_collision"><pose>0 0 8.2 0 0 0</pose><geometry><sphere><radius>2.7</radius></sphere></geometry></collision>
