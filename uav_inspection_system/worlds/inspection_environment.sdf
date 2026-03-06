@@ -325,5 +325,22 @@
       </link>
     </model>
 
+
+    <!-- 三架等待QGC指令起飞的Iris无人机 -->
+    <include>
+      <uri>model://iris</uri>
+      <name>iris_uav1</name>
+      <pose>-32 -10 0.2 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://iris</uri>
+      <name>iris_uav2</name>
+      <pose>-28 -10 0.2 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://iris</uri>
+      <name>iris_uav3</name>
+      <pose>-30 -6 0.2 0 0 0</pose>
+    </include>
   </world>
 </sdf>
