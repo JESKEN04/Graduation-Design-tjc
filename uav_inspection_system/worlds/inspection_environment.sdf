@@ -1,244 +1,636 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
-
-<world name="inspection_world">
-
-<!-- 太阳光 -->
-<light type="directional" name="sun">
-  <pose>0 0 100 0 0 0</pose>
-  <diffuse>1 1 1 1</diffuse>
-  <specular>0.5 0.5 0.5 1</specular>
-  <direction>-0.5 0.1 -1</direction>
-</light>
-
-
-<!-- 地面 -->
-<model name="ground">
-  <static>true</static>
-  <link name="link">
-    <collision name="collision">
-      <geometry>
-        <plane>
-          <normal>0 0 1</normal>
-          <size>400 400</size>
-        </plane>
-      </geometry>
-    </collision>
-
-    <visual name="visual">
-      <geometry>
-        <plane>
-          <normal>0 0 1</normal>
-          <size>400 400</size>
-        </plane>
-      </geometry>
-      <material>
-        <ambient>0.4 0.6 0.4 1</ambient>
-        <diffuse>0.4 0.6 0.4 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model>
-
-
-
-<!-- 山体 -->
-<model name="mountain">
-  <static>true</static>
-  <pose>0 0 15 0 0 0</pose>
-
-  <link name="link">
-
-    <collision name="collision">
-      <geometry>
-        <box>
-          <size>80 80 30</size>
-        </box>
-      </geometry>
-    </collision>
-
-    <visual name="visual">
-      <geometry>
-        <box>
-          <size>80 80 30</size>
-        </box>
-      </geometry>
-
-      <material>
-        <ambient>0.5 0.4 0.3 1</ambient>
-        <diffuse>0.6 0.45 0.3 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 输电塔1 -->
-<model name="tower1">
-  <static>true</static>
-  <pose>-40 0 20 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>1.2</radius>
-          <length>40</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0.3 0.3 0.3 1</ambient>
-        <diffuse>0.4 0.4 0.4 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 输电塔2 (更高一点) -->
-<model name="tower2">
-  <static>true</static>
-  <pose>40 0 24 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>1.2</radius>
-          <length>48</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0.3 0.3 0.3 1</ambient>
-        <diffuse>0.4 0.4 0.4 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 电线 -->
-<model name="powerline">
-  <static>true</static>
-
-  <link name="link">
-
-    <visual name="wire">
-
-      <pose>0 0 42 0 1.57 0</pose>
-
-      <geometry>
-        <cylinder>
-          <radius>0.25</radius>
-          <length>80</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0 0 1</ambient>
-        <diffuse>0.1 0.1 0.1 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 树1 -->
-<model name="tree1">
-  <static>true</static>
-  <pose>-10 25 6 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>2</radius>
-          <length>12</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0.7 0 1</ambient>
-        <diffuse>0 0.8 0 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 树2 -->
-<model name="tree2">
-  <static>true</static>
-  <pose>20 30 7 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>2</radius>
-          <length>14</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0.7 0 1</ambient>
-        <diffuse>0 0.8 0 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-<!-- 树3 -->
-<model name="tree3">
-  <static>true</static>
-  <pose>-25 -20 6 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <cylinder>
-          <radius>2</radius>
-          <length>12</length>
-        </cylinder>
-      </geometry>
-
-      <material>
-        <ambient>0 0.7 0 1</ambient>
-        <diffuse>0 0.8 0 1</diffuse>
-      </material>
-
-    </visual>
-
-  </link>
-</model>
-
-
-
-</world>
+  <world name="inspection_world">
+
+    <!-- 光照 -->
+    <light type="directional" name="sun">
+      <pose>0 0 120 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.4 0.4 0.4 1</specular>
+      <direction>-0.4 0.2 -1</direction>
+    </light>
+
+    <!-- 地面 -->
+    <model name="ground">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.35 0.55 0.35 1</ambient>
+            <diffuse>0.35 0.55 0.35 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 主山体（多层叠加，细化坡度与山脊） -->
+    <model name="mountain_main">
+      <static>true</static>
+      <pose>-45 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="base_1_collision">
+          <pose>0 0 4 0 0 0</pose>
+          <geometry><cylinder><radius>32.0</radius><length>8.0</length></cylinder></geometry>
+        </collision>
+        <collision name="base_2_collision">
+          <pose>1.5 -1.2 10 0 0 0</pose>
+          <geometry><cylinder><radius>26.0</radius><length>7.0</length></cylinder></geometry>
+        </collision>
+        <collision name="base_3_collision">
+          <pose>-1.2 1.0 15 0 0 0</pose>
+          <geometry><cylinder><radius>20.0</radius><length>6.0</length></cylinder></geometry>
+        </collision>
+        <collision name="peak_1_collision">
+          <pose>0.4 -0.5 20 0 0 0</pose>
+          <geometry><cone><radius>15.0</radius><length>10.0</length></cone></geometry>
+        </collision>
+        <collision name="peak_2_collision">
+          <pose>-0.6 0.8 24 0 0 0</pose>
+          <geometry><cone><radius>10.0</radius><length>8.0</length></cone></geometry>
+        </collision>
+        <collision name="peak_3_collision">
+          <pose>0.0 0.3 27.5 0 0 0</pose>
+          <geometry><cone><radius>6.5</radius><length>6.0</length></cone></geometry>
+        </collision>
+        <visual name="base_1_visual">
+          <pose>0 0 4 0 0 0</pose>
+          <geometry><cylinder><radius>32.0</radius><length>8.0</length></cylinder></geometry>
+          <material><ambient>0.44 0.35 0.27 1</ambient><diffuse>0.52 0.40 0.30 1</diffuse></material>
+        </visual>
+        <visual name="base_2_visual">
+          <pose>1.5 -1.2 10 0 0 0</pose>
+          <geometry><cylinder><radius>26.0</radius><length>7.0</length></cylinder></geometry>
+          <material><ambient>0.44 0.35 0.27 1</ambient><diffuse>0.52 0.40 0.30 1</diffuse></material>
+        </visual>
+        <visual name="base_3_visual">
+          <pose>-1.2 1.0 15 0 0 0</pose>
+          <geometry><cylinder><radius>20.0</radius><length>6.0</length></cylinder></geometry>
+          <material><ambient>0.44 0.35 0.27 1</ambient><diffuse>0.52 0.40 0.30 1</diffuse></material>
+        </visual>
+        <visual name="peak_1_visual">
+          <pose>0.4 -0.5 20 0 0 0</pose>
+          <geometry><cone><radius>15.0</radius><length>10.0</length></cone></geometry>
+          <material><ambient>0.42 0.33 0.25 1</ambient><diffuse>0.50 0.38 0.28 1</diffuse></material>
+        </visual>
+        <visual name="peak_2_visual">
+          <pose>-0.6 0.8 24 0 0 0</pose>
+          <geometry><cone><radius>10.0</radius><length>8.0</length></cone></geometry>
+          <material><ambient>0.42 0.33 0.25 1</ambient><diffuse>0.50 0.38 0.28 1</diffuse></material>
+        </visual>
+        <visual name="peak_3_visual">
+          <pose>0.0 0.3 27.5 0 0 0</pose>
+          <geometry><cone><radius>6.5</radius><length>6.0</length></cone></geometry>
+          <material><ambient>0.42 0.33 0.25 1</ambient><diffuse>0.50 0.38 0.28 1</diffuse></material>
+        </visual>
+        <collision name="ridge_1_collision">
+          <pose>7 -5 13 0.1 -0.05 0.2</pose>
+          <geometry><box><size>6 4 5</size></box></geometry>
+        </collision>
+        <visual name="ridge_1_visual">
+          <pose>7 -5 13 0.1 -0.05 0.2</pose>
+          <geometry><box><size>6 4 5</size></box></geometry>
+          <material><ambient>0.38 0.31 0.24 1</ambient><diffuse>0.47 0.37 0.28 1</diffuse></material>
+        </visual>
+        <collision name="ridge_2_collision">
+          <pose>-8 6 12 0.1 -0.05 0.2</pose>
+          <geometry><box><size>7 4.5 4</size></box></geometry>
+        </collision>
+        <visual name="ridge_2_visual">
+          <pose>-8 6 12 0.1 -0.05 0.2</pose>
+          <geometry><box><size>7 4.5 4</size></box></geometry>
+          <material><ambient>0.38 0.31 0.24 1</ambient><diffuse>0.47 0.37 0.28 1</diffuse></material>
+        </visual>
+        <collision name="ridge_3_collision">
+          <pose>4 8 17 0.1 -0.05 0.2</pose>
+          <geometry><box><size>4.5 3.5 3.5</size></box></geometry>
+        </collision>
+        <visual name="ridge_3_visual">
+          <pose>4 8 17 0.1 -0.05 0.2</pose>
+          <geometry><box><size>4.5 3.5 3.5</size></box></geometry>
+          <material><ambient>0.38 0.31 0.24 1</ambient><diffuse>0.47 0.37 0.28 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 副山体 -->
+    <model name="mountain_side">
+      <static>true</static>
+      <pose>-8 40 0 0 0 0</pose>
+      <link name="link">
+        <collision name="base_collision"><pose>0 0 5 0 0 0</pose><geometry><cylinder><radius>16</radius><length>10</length></cylinder></geometry></collision>
+        <collision name="peak_collision"><pose>0 0 12.5 0 0 0</pose><geometry><cone><radius>12</radius><length>15</length></cone></geometry></collision>
+        <visual name="base_visual"><pose>0 0 5 0 0 0</pose><geometry><cylinder><radius>16</radius><length>10</length></cylinder></geometry><material><ambient>0.43 0.35 0.28 1</ambient><diffuse>0.50 0.40 0.30 1</diffuse></material></visual>
+        <visual name="peak_visual"><pose>0 0 12.5 0 0 0</pose><geometry><cone><radius>12</radius><length>15</length></cone></geometry><material><ambient>0.41 0.34 0.27 1</ambient><diffuse>0.48 0.39 0.30 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- 输电塔1（山顶） -->
+    <model name="tower_mountain">
+      <static>true</static>
+      <pose>-45 0 42 0 0 0</pose>
+      <link name="link">
+        <collision name="mast_collision"><geometry><cylinder><radius>1.1</radius><length>26</length></cylinder></geometry></collision>
+        <collision name="crossarm_collision"><pose>0 0 10 0 1.5708 0</pose><geometry><cylinder><radius>0.35</radius><length>8</length></cylinder></geometry></collision>
+        <visual name="mast_visual"><geometry><cylinder><radius>1.1</radius><length>26</length></cylinder></geometry><material><ambient>0.27 0.27 0.27 1</ambient><diffuse>0.38 0.38 0.38 1</diffuse></material></visual>
+        <visual name="crossarm_visual"><pose>0 0 10 0 1.5708 0</pose><geometry><cylinder><radius>0.35</radius><length>8</length></cylinder></geometry><material><ambient>0.27 0.27 0.27 1</ambient><diffuse>0.38 0.38 0.38 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- 输电塔2（平地） -->
+    <model name="tower_plain">
+      <static>true</static>
+      <pose>55 0 16 0 0 0</pose>
+      <link name="link">
+        <collision name="mast_collision"><geometry><cylinder><radius>1.2</radius><length>32</length></cylinder></geometry></collision>
+        <collision name="crossarm_collision"><pose>0 0 11 0 1.5708 0</pose><geometry><cylinder><radius>0.35</radius><length>8.5</length></cylinder></geometry></collision>
+        <visual name="mast_visual"><geometry><cylinder><radius>1.2</radius><length>32</length></cylinder></geometry><material><ambient>0.27 0.27 0.27 1</ambient><diffuse>0.38 0.38 0.38 1</diffuse></material></visual>
+        <visual name="crossarm_visual"><pose>0 0 11 0 1.5708 0</pose><geometry><cylinder><radius>0.35</radius><length>8.5</length></cylinder></geometry><material><ambient>0.27 0.27 0.27 1</ambient><diffuse>0.38 0.38 0.38 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- 电线：使用高密度短段圆柱，保证几何连续 -->
+    <model name="powerline_catenary">
+      <static>true</static>
+      <link name="link">
+        <visual name="wire_seg_1">
+          <pose>-39.9432 0.0000 51.4626 0 2.041224 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3712</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_1_collision">
+          <pose>-39.9432 0.0000 51.4626 0 2.041224 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3712</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_2">
+          <pose>-37.8295 0.0000 50.4039 0 2.029033 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3568</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_2_collision">
+          <pose>-37.8295 0.0000 50.4039 0 2.029033 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3568</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_3">
+          <pose>-35.7159 0.0000 49.3775 0 2.016694 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3427</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_3_collision">
+          <pose>-35.7159 0.0000 49.3775 0 2.016694 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3427</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_4">
+          <pose>-33.6023 0.0000 48.3833 0 2.004208 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3290</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_4_collision">
+          <pose>-33.6023 0.0000 48.3833 0 2.004208 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3290</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_5">
+          <pose>-31.4886 0.0000 47.4213 0 1.991575 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3156</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_5_collision">
+          <pose>-31.4886 0.0000 47.4213 0 1.991575 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3156</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_6">
+          <pose>-29.3750 0.0000 46.4915 0 1.978799 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3026</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_6_collision">
+          <pose>-29.3750 0.0000 46.4915 0 1.978799 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.3026</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_7">
+          <pose>-27.2614 0.0000 45.5940 0 1.965879 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2901</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_7_collision">
+          <pose>-27.2614 0.0000 45.5940 0 1.965879 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2901</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_8">
+          <pose>-25.1477 0.0000 44.7287 0 1.952819 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2778</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_8_collision">
+          <pose>-25.1477 0.0000 44.7287 0 1.952819 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2778</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_9">
+          <pose>-23.0341 0.0000 43.8957 0 1.939620 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2660</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_9_collision">
+          <pose>-23.0341 0.0000 43.8957 0 1.939620 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2660</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_10">
+          <pose>-20.9205 0.0000 43.0948 0 1.926285 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2546</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_10_collision">
+          <pose>-20.9205 0.0000 43.0948 0 1.926285 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2546</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_11">
+          <pose>-18.8068 0.0000 42.3262 0 1.912817 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2436</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_11_collision">
+          <pose>-18.8068 0.0000 42.3262 0 1.912817 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2436</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_12">
+          <pose>-16.6932 0.0000 41.5899 0 1.899218 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2330</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_12_collision">
+          <pose>-16.6932 0.0000 41.5899 0 1.899218 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2330</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_13">
+          <pose>-14.5795 0.0000 40.8857 0 1.885492 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2228</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_13_collision">
+          <pose>-14.5795 0.0000 40.8857 0 1.885492 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2228</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_14">
+          <pose>-12.4659 0.0000 40.2138 0 1.871643 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2130</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_14_collision">
+          <pose>-12.4659 0.0000 40.2138 0 1.871643 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2130</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_15">
+          <pose>-10.3523 0.0000 39.5742 0 1.857673 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2037</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_15_collision">
+          <pose>-10.3523 0.0000 39.5742 0 1.857673 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.2037</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_16">
+          <pose>-8.2386 0.0000 38.9667 0 1.843587 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1948</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_16_collision">
+          <pose>-8.2386 0.0000 38.9667 0 1.843587 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1948</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_17">
+          <pose>-6.1250 0.0000 38.3915 0 1.829390 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1863</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_17_collision">
+          <pose>-6.1250 0.0000 38.3915 0 1.829390 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1863</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_18">
+          <pose>-4.0114 0.0000 37.8486 0 1.815085 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1783</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_18_collision">
+          <pose>-4.0114 0.0000 37.8486 0 1.815085 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1783</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_19">
+          <pose>-1.8977 0.0000 37.3378 0 1.800677 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1707</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_19_collision">
+          <pose>-1.8977 0.0000 37.3378 0 1.800677 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1707</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_20">
+          <pose>0.2159 0.0000 36.8593 0 1.786172 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1636</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_20_collision">
+          <pose>0.2159 0.0000 36.8593 0 1.786172 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1636</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_21">
+          <pose>2.3295 0.0000 36.4130 0 1.771573 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1570</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_21_collision">
+          <pose>2.3295 0.0000 36.4130 0 1.771573 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1570</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_22">
+          <pose>4.4432 0.0000 35.9990 0 1.756888 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1508</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_22_collision">
+          <pose>4.4432 0.0000 35.9990 0 1.756888 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1508</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_23">
+          <pose>6.5568 0.0000 35.6171 0 1.742121 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1450</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_23_collision">
+          <pose>6.5568 0.0000 35.6171 0 1.742121 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1450</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_24">
+          <pose>8.6705 0.0000 35.2676 0 1.727278 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1398</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_24_collision">
+          <pose>8.6705 0.0000 35.2676 0 1.727278 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1398</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_25">
+          <pose>10.7841 0.0000 34.9502 0 1.712365 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1350</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_25_collision">
+          <pose>10.7841 0.0000 34.9502 0 1.712365 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1350</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_26">
+          <pose>12.8977 0.0000 34.6651 0 1.697388 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1307</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_26_collision">
+          <pose>12.8977 0.0000 34.6651 0 1.697388 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1307</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_27">
+          <pose>15.0114 0.0000 34.4122 0 1.682355 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1269</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_27_collision">
+          <pose>15.0114 0.0000 34.4122 0 1.682355 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1269</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_28">
+          <pose>17.1250 0.0000 34.1915 0 1.667270 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1235</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_28_collision">
+          <pose>17.1250 0.0000 34.1915 0 1.667270 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1235</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_29">
+          <pose>19.2386 0.0000 34.0031 0 1.652141 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1206</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_29_collision">
+          <pose>19.2386 0.0000 34.0031 0 1.652141 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1206</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_30">
+          <pose>21.3523 0.0000 33.8469 0 1.636975 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1183</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_30_collision">
+          <pose>21.3523 0.0000 33.8469 0 1.636975 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1183</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_31">
+          <pose>23.4659 0.0000 33.7229 0 1.621779 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1164</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_31_collision">
+          <pose>23.4659 0.0000 33.7229 0 1.621779 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1164</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_32">
+          <pose>25.5795 0.0000 33.6312 0 1.606558 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1150</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_32_collision">
+          <pose>25.5795 0.0000 33.6312 0 1.606558 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1150</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_33">
+          <pose>27.6932 0.0000 33.5717 0 1.591321 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1141</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_33_collision">
+          <pose>27.6932 0.0000 33.5717 0 1.591321 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1141</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_34">
+          <pose>29.8068 0.0000 33.5444 0 1.576075 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1137</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_34_collision">
+          <pose>29.8068 0.0000 33.5444 0 1.576075 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1137</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_35">
+          <pose>31.9205 0.0000 33.5494 0 1.560826 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1137</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_35_collision">
+          <pose>31.9205 0.0000 33.5494 0 1.560826 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1137</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_36">
+          <pose>34.0341 0.0000 33.5866 0 1.545582 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1143</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_36_collision">
+          <pose>34.0341 0.0000 33.5866 0 1.545582 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1143</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_37">
+          <pose>36.1477 0.0000 33.6560 0 1.530349 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1154</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_37_collision">
+          <pose>36.1477 0.0000 33.6560 0 1.530349 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1154</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_38">
+          <pose>38.2614 0.0000 33.7576 0 1.515135 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1169</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_38_collision">
+          <pose>38.2614 0.0000 33.7576 0 1.515135 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1169</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_39">
+          <pose>40.3750 0.0000 33.8915 0 1.499947 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1190</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_39_collision">
+          <pose>40.3750 0.0000 33.8915 0 1.499947 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1190</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_40">
+          <pose>42.4886 0.0000 34.0576 0 1.484792 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1215</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_40_collision">
+          <pose>42.4886 0.0000 34.0576 0 1.484792 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1215</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_41">
+          <pose>44.6023 0.0000 34.2560 0 1.469676 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1245</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_41_collision">
+          <pose>44.6023 0.0000 34.2560 0 1.469676 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1245</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_42">
+          <pose>46.7159 0.0000 34.4866 0 1.454606 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1280</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_42_collision">
+          <pose>46.7159 0.0000 34.4866 0 1.454606 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1280</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_43">
+          <pose>48.8295 0.0000 34.7494 0 1.439590 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1320</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_43_collision">
+          <pose>48.8295 0.0000 34.7494 0 1.439590 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1320</length></cylinder></geometry>
+        </collision>
+        <visual name="wire_seg_44">
+          <pose>50.9432 0.0000 35.0444 0 1.424632 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1364</length></cylinder></geometry>
+          <material><ambient>0.06 0.06 0.06 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="wire_seg_44_collision">
+          <pose>50.9432 0.0000 35.0444 0 1.424632 0</pose>
+          <geometry><cylinder><radius>0.09</radius><length>2.1364</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 树木障碍 -->
+    <model name="tree_1">
+      <static>true</static>
+      <pose>-24 18 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 3.0 0 0 0</pose><geometry><cylinder><radius>0.8</radius><length>6</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 8.0 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 3.0 0 0 0</pose><geometry><cylinder><radius>0.8</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 8.0 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.10 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_2">
+      <static>true</static>
+      <pose>-8 -22 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 3.5 0 0 0</pose><geometry><cylinder><radius>0.9</radius><length>7</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 9.0 0 0 0</pose><geometry><sphere><radius>3.0</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 3.5 0 0 0</pose><geometry><cylinder><radius>0.9</radius><length>7</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 9.0 0 0 0</pose><geometry><sphere><radius>3.0</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.10 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_3">
+      <static>true</static>
+      <pose>14 26 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 3.0 0 0 0</pose><geometry><cylinder><radius>0.75</radius><length>6</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 7.8 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 3.0 0 0 0</pose><geometry><cylinder><radius>0.75</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 7.8 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.10 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_4">
+      <static>true</static>
+      <pose>28 -18 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 4.0 0 0 0</pose><geometry><cylinder><radius>1.0</radius><length>8</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 10.0 0 0 0</pose><geometry><sphere><radius>3.2</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 4.0 0 0 0</pose><geometry><cylinder><radius>1.0</radius><length>8</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 10.0 0 0 0</pose><geometry><sphere><radius>3.2</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.10 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_5">
+      <static>true</static>
+      <pose>5 8 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 2.5 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>5</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 6.8 0 0 0</pose><geometry><sphere><radius>2.3</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 2.5 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>5</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 6.8 0 0 0</pose><geometry><sphere><radius>2.3</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.10 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="tree_6">
+      <static>true</static>
+      <pose>32 14 0 0 0</pose>
+      <link name="link">
+        <collision name="trunk_collision"><pose>0 0 3.2 0 0 0</pose><geometry><cylinder><radius>0.85</radius><length>6.5</length></cylinder></geometry></collision>
+        <collision name="crown_collision"><pose>0 0 8.2 0 0 0</pose><geometry><sphere><radius>2.7</radius></sphere></geometry></collision>
+        <visual name="trunk_visual"><pose>0 0 3.2 0 0 0</pose><geometry><cylinder><radius>0.85</radius><length>6.5</length></cylinder></geometry><material><ambient>0.35 0.23 0.12 1</ambient><diffuse>0.42 0.28 0.15 1</diffuse></material></visual>
+        <visual name="crown_visual"><pose>0 0 8.2 0 0 0</pose><geometry><sphere><radius>2.7</radius></sphere></geometry><material><ambient>0.05 0.45 0.08 1</ambient><diffuse>0.08 0.55 0.10 1</diffuse></material></visual>
+      </link>
+    </model>
+
+  </world>
 </sdf>
