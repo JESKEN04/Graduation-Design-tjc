@@ -1,0 +1,18 @@
+rbf_network:
+  # 网络拓扑
+  input_dimension: 3        # [error, error_rate, integrated_error]
+  hidden_neurons: 10
+  output_dimension: 3       # [delta_Kp, delta_Ki, delta_Kd]
+  
+  # RBF参数
+  sigma: 1.0
+  learning_rate: 0.01
+  
+  # 文件路径
+  weight_file: "data/rbf_weights/network_weights.dat"
+  
+  # 训练参数
+  training:
+    epochs: 100
+    batch_size: 32
+    validation_split: 0.2

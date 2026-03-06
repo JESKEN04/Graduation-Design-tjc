@@ -1,0 +1,244 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+
+<world name="inspection_world">
+
+<!-- 太阳光 -->
+<light type="directional" name="sun">
+  <pose>0 0 100 0 0 0</pose>
+  <diffuse>1 1 1 1</diffuse>
+  <specular>0.5 0.5 0.5 1</specular>
+  <direction>-0.5 0.1 -1</direction>
+</light>
+
+
+<!-- 地面 -->
+<model name="ground">
+  <static>true</static>
+  <link name="link">
+    <collision name="collision">
+      <geometry>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>400 400</size>
+        </plane>
+      </geometry>
+    </collision>
+
+    <visual name="visual">
+      <geometry>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>400 400</size>
+        </plane>
+      </geometry>
+      <material>
+        <ambient>0.4 0.6 0.4 1</ambient>
+        <diffuse>0.4 0.6 0.4 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+
+
+
+<!-- 山体 -->
+<model name="mountain">
+  <static>true</static>
+  <pose>0 0 15 0 0 0</pose>
+
+  <link name="link">
+
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>80 80 30</size>
+        </box>
+      </geometry>
+    </collision>
+
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>80 80 30</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>0.5 0.4 0.3 1</ambient>
+        <diffuse>0.6 0.45 0.3 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+</model>
+
+
+
+<!-- 输电塔1 -->
+<model name="tower1">
+  <static>true</static>
+  <pose>-40 0 20 0 0 0</pose>
+
+  <link name="link">
+
+    <visual name="visual">
+      <geometry>
+        <cylinder>
+          <radius>1.2</radius>
+          <length>40</length>
+        </cylinder>
+      </geometry>
+
+      <material>
+        <ambient>0.3 0.3 0.3 1</ambient>
+        <diffuse>0.4 0.4 0.4 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+</model>
+
+
+
+<!-- 输电塔2 (更高一点) -->
+<model name="tower2">
+  <static>true</static>
+  <pose>40 0 24 0 0 0</pose>
+
+  <link name="link">
+
+    <visual name="visual">
+      <geometry>
+        <cylinder>
+          <radius>1.2</radius>
+          <length>48</length>
+        </cylinder>
+      </geometry>
+
+      <material>
+        <ambient>0.3 0.3 0.3 1</ambient>
+        <diffuse>0.4 0.4 0.4 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+</model>
+
+
+
+<!-- 电线 -->
+<model name="powerline">
+  <static>true</static>
+
+  <link name="link">
+
+    <visual name="wire">
+
+      <pose>0 0 42 0 1.57 0</pose>
+
+      <geometry>
+        <cylinder>
+          <radius>0.25</radius>
+          <length>80</length>
+        </cylinder>
+      </geometry>
+
+      <material>
+        <ambient>0 0 0 1</ambient>
+        <diffuse>0.1 0.1 0.1 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+</model>
+
+
+
+<!-- 树1 -->
+<model name="tree1">
+  <static>true</static>
+  <pose>-10 25 6 0 0 0</pose>
+
+  <link name="link">
+
+    <visual name="visual">
+      <geometry>
+        <cylinder>
+          <radius>2</radius>
+          <length>12</length>
+        </cylinder>
+      </geometry>
+
+      <material>
+        <ambient>0 0.7 0 1</ambient>
+        <diffuse>0 0.8 0 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+</model>
+
+
+
+<!-- 树2 -->
+<model name="tree2">
+  <static>true</static>
+  <pose>20 30 7 0 0 0</pose>
+
+  <link name="link">
+
+    <visual name="visual">
+      <geometry>
+        <cylinder>
+          <radius>2</radius>
+          <length>14</length>
+        </cylinder>
+      </geometry>
+
+      <material>
+        <ambient>0 0.7 0 1</ambient>
+        <diffuse>0 0.8 0 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+</model>
+
+
+
+<!-- 树3 -->
+<model name="tree3">
+  <static>true</static>
+  <pose>-25 -20 6 0 0 0</pose>
+
+  <link name="link">
+
+    <visual name="visual">
+      <geometry>
+        <cylinder>
+          <radius>2</radius>
+          <length>12</length>
+        </cylinder>
+      </geometry>
+
+      <material>
+        <ambient>0 0.7 0 1</ambient>
+        <diffuse>0 0.8 0 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+</model>
+
+
+
+</world>
+</sdf>

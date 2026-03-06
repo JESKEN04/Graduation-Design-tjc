@@ -1,0 +1,24 @@
+px4:
+  sitl_mode: true
+  gazebo_model: iris
+  
+  # Vehicle parameters
+  vehicle:
+    mass: 1.5
+    gravity: 9.81
+    max_altitude: 100
+    max_speed: 20
+  
+  # Sensor simulation
+  sensors:
+    gps:
+      enabled: true
+      frequency: 10
+      noise: 0.1
+    imu:
+      enabled: true
+      frequency: 50
+      noise: 0.01
+    barometer:
+      enabled: true
+      frequency: 10

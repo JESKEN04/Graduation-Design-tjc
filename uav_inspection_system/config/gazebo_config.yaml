@@ -1,0 +1,17 @@
+gazebo:
+  version: 8.10.0
+  physics_engine: ode
+  max_step_size: 0.001
+  real_time_factor: 1.0
+  
+  environment:
+    wind_enabled: false
+    wind_speed: 0.0
+    rain_enabled: false
+    fog_enabled: false
+  
+  graphics:
+    resolution_x: 1920
+    resolution_y: 1080
+    quality: high
+    headless: false

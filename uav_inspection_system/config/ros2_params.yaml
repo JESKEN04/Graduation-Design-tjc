@@ -1,0 +1,19 @@
+ros2:
+  domain_id: 0
+  communication:
+    topic_rate: 50  # Hz
+    service_timeout: 5000  # ms
+  
+  nodes:
+    gazebo_bridge:
+      enabled: true
+      frequency: 50
+    px4_bridge:
+      enabled: true
+      frequency: 100
+    mission_coordinator:
+      enabled: true
+      frequency: 10
+    state_monitor:
+      enabled: true
+      frequency: 50
