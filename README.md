@@ -109,6 +109,21 @@ ROS2 关键话题：
 
 ## 8. 常见启动失败与排查（这次重点补齐）
 
+### 8.0 终端“没有反应/黑屏”
+最常见原因不是程序没运行，而是**脚本在后台启动后输出进日志文件**，或你是从文件管理器双击脚本导致终端立即关闭。
+
+请严格用下面命令在终端中启动：
+```bash
+cd ~/ros2_ws/src/Graduation-Design-tjc
+bash -x ./uav_inspection_system/scripts/run_full_system.sh
+```
+
+然后在新终端查看日志：
+```bash
+tail -f ~/ros2_ws/src/Graduation-Design-tjc/.run_logs/gz.log
+tail -f ~/ros2_ws/src/Graduation-Design-tjc/.run_logs/px4_multi.log
+```
+
 ### 8.1 `ros2 run ... not found`
 - 先确认已 `colcon build` 且 `source ~/ros2_ws/install/setup.bash`。
 - 检查：

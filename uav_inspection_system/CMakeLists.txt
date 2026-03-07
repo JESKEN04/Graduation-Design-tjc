@@ -158,12 +158,4 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# 安装可执行脚本
-install(PROGRAMS
-  scripts/run_full_system.sh
-  scripts/rbf_pid_autotune_node.py
-  scripts/formation_consensus_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 ament_package()
