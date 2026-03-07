@@ -49,25 +49,6 @@ start_bg() {
 show_logs_hint() {
   cat <<EOM
 
-====================
-实时日志查看（新开终端）:
-  tail -f "$LOG_DIR/gz.log"
-  tail -f "$LOG_DIR/agent.log"
-  tail -f "$LOG_DIR/px4_multi.log"
-  tail -f "$LOG_DIR/rbf.log"
-  tail -f "$LOG_DIR/formation.log"
-====================
-EOM
-}
-
-PIDS=()
-cleanup() {
-  log "正在清理后台进程..."
-  for pid in "${PIDS[@]:-}"; do
-    kill "$pid" 2>/dev/null || true
-  done
-}
-trap cleanup EXIT INT TERM
 
 require_cmd gz
 require_cmd ros2
