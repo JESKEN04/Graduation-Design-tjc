@@ -3,19 +3,26 @@
 <package format="3">
   <name>uav_inspection_system</name>
   <version>0.1.0</version>
-  <description>UAV Formation with Gazebo Sim 8.9.0</description>
+  <description>Multi-UAV transmission-line inspection demo (ROS2 + Gazebo + PX4)</description>
   <maintainer email="student@example.com">Tan Jiacong</maintainer>
   <license>MIT</license>
+
   <buildtool_depend>ament_cmake</buildtool_depend>
+
   <depend>rclcpp</depend>
+  <depend>rclpy</depend>
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>nav_msgs</depend>
-  <depend>ros-gzgarden</depend>
-  <depend>ros-gzgarden-sim</depend>
+
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>
