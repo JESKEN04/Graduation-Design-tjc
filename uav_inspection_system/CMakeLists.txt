@@ -144,11 +144,18 @@ install(DIRECTORY include/
 
 # 安装launch、worlds、config等
 install(DIRECTORY
-  launch/
-  worlds/
-  config/
-  data/
-  DESTINATION share/${PROJECT_NAME}/
+  launch
+  worlds
+  config
+  DESTINATION share/${PROJECT_NAME}
+)
+
+# 安装可执行脚本
+install(PROGRAMS
+  scripts/run_full_system.sh
+  scripts/rbf_pid_autotune_node.py
+  scripts/formation_consensus_node.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 # 安装可执行脚本
